@@ -84,7 +84,7 @@ myDictObj = { \
 
     "postUsername" : postUsername,
     "postPassword" : postPassword,
-    "domains" : [ 
+    "domains" : [
         "hotmail.com",
         "gmail.com",
         "outlook.com",
