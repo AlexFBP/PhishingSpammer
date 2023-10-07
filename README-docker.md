@@ -11,11 +11,13 @@ In addition to the [main README](README.md), here is an alternative with docker.
 
 ## Initialize
 
+Despite `docker compose` handles the initial build and updates to [Dockerfile](Dockerfile) or to [docker-compose.yml](docker-compose.yml), you can always run the following, at least "to gain time" before the first run of the actual commands:
+
 ```sh
 docker compose build
 ```
 
-## Scripts
+## Commands / Steps
 
 - Generate settings.json file:
 
