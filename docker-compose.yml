@@ -1,0 +1,17 @@
+services:
+
+  config:
+    build: '.'
+    command: 'settings-generator.py'
+    volumes:
+      - './config:/app/src/config'
+
+  spam:
+    build: '.'
+    command: 'spammer.py'
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
+    # Uncomment this 🡅 if you want first to test in a local service. Use 'host.docker.internal' instead of 'localhost'
+    # More info: https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host
+    volumes:
+      - './config:/app/src/config'

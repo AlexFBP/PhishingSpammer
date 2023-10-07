@@ -48,6 +48,8 @@ Now click `enter` and you should get something like this! Happy hunting!
 Phising Spammer requires [Python 3.8.*](https://www.python.org/) to run.
 (Only tested on Python 3.8.5)
 
+(Alternatively, you can [use Docker](README-docker.md))
+
 Install the dependencies.
 
 Windows:
@@ -67,5 +69,10 @@ Want to contribute? Great!
 Keep em' coming and I'll take a look at em'!
 
 ## Ideas for next update:
+
 ### Feel free to add these features yourself!
+
   - Make it so it finds the name attributes automatically.
+  - Ask for additional params and its format requirements (default: none).
+  - Advanced - Ask for the HTTP method (default: POST).
+  - Advanced - Ask for HTTP headers (default: none?).
