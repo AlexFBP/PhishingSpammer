@@ -31,6 +31,9 @@ print(drawLine('-'))
 print(str.center(title, allign_center(title)))
 print(drawLine('-'))
 
+# Config folder for all json files
+configPath = 'config/'
+
 #Inputs
 #Save file with a custom name
 jsonFilename = input('Save file as => ')
@@ -40,6 +43,7 @@ if jsonFilename == "":
     for i in range(6):
         jsonFilename = jsonFilename + random.choice(string.ascii_letters)
         jsonFilename = jsonFilename.lower()
+jsonFilename = configPath + jsonFilename
 
 #Checks if filename input has the extension .json
 root, ext = os.path.splitext(jsonFilename)
@@ -51,12 +55,14 @@ jsonFilename = root + ext
 targetUrl = input('Target URL (http://example.com/login.php) => ')
 namesJson = input('Names JSON File (If empty = names.json) => ')
 if namesJson == "": namesJson = "names.json"
+namesJson = configPath + namesJson
 root, ext = os.path.splitext(namesJson)
 if not ext:
    ext = '.json'
 namesJson = root + ext
 passwordsJson = input('Passwords JSON File (If empty = passwords.json) => ')
 if passwordsJson == "": passwordsJson = "passwords.json"
+passwordsJson = configPath + passwordsJson
 #Checks if filename input has the extension .json
 root, ext = os.path.splitext(passwordsJson)
 if not ext:

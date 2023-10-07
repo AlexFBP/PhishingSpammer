@@ -22,10 +22,14 @@ def allign_center(text):
     devided = rows - 1
     return devided
 
+# Config folder for all json files
+configPath = 'config/'
+
 #Choose settings file generated from 'settings-generator.py'
 settingsfilejson = input('Settings file (If empty = settings.json) => ')
 #If user didn't choose a settings file, use 'settings.json' as default
 if settingsfilejson == '': settingsfilejson = 'settings.json'
+settingsfilejson = configPath + settingsfilejson
 
 #Checks if filename input has the extension .json
 root, ext = os.path.splitext(settingsfilejson)
