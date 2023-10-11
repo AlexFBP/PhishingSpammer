@@ -74,5 +74,4 @@ Keep em' coming and I'll take a look at em'!
 
   - Make it so it finds the name attributes automatically.
   - Ask for additional params and its format requirements (default: none).
-  - Advanced - Ask for the HTTP method (default: POST).
   - Advanced - Ask for HTTP headers (default: none?).
