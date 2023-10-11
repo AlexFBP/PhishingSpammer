@@ -76,6 +76,11 @@ print(str.center(title, allign_center(title)))
 print(str.center('github.com/v3lip/PhishingSpammer', allign_center('github.com/v3lip/PhishingSpammer')))
 print(drawLine('-'))
 
+method = '1' # default method
+settingsMethod = settings.get('method')
+if settingsMethod is not None:
+    method = settingsMethod
+
 #Int for counting the loop
 run = 0
 
@@ -118,10 +123,16 @@ try:
         password = random.choice(passwords)
 
         #Sending username and password to the victim
-        requests.post(url, allow_redirects=False, data={
+        payload={
             settings['postUsername']: username,
             settings['postPassword']: password
-        })
+        }
+        if method == '1':
+            requests.post(url, allow_redirects=False, data=payload)
+        elif method == '2':
+            requests.post(url, allow_redirects=False, data=json.dumps(payload))
+        else:
+            raise Exception(f'Method "{method}" not implemented')
 
         #Prints out current count and username/password sent to the site
         run = run+1
@@ -132,3 +143,7 @@ except KeyboardInterrupt:
     print(drawLine('-'))
     print(colorText('Done! Spammed [[red]]{}[[reset]] times to [[red]]{}[[reset]]!'.format(run, url)))
     print('github.com/v3lip/PhishingSpammer')
+
+except Exception as e:
+    print('Unexpected Error: ')
+    print(e)

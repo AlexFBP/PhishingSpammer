@@ -73,6 +73,25 @@ if postUsername == "": postUsername = "username"
 postPassword = input('Form password HTML name (If empty = password) => ')
 if postPassword == "": postPassword = "password"
 
+method = '1' # default method
+methods = {
+    "1": "POST + URL Encoded payload",
+    "2": "POST + JSON Payload",
+}
+keepMethod = input(f'Use default method? ({method} - {methods[method]}) - y/n? (If empty = y) => ')
+while keepMethod == 'n':
+    print('\nAvailable methods:')
+    for k, v in methods.items():
+        print(f' {k}: {v}')
+    newMethod = input(f'Please input (If empty = the current, {method}) => ')
+    if newMethod == '':
+        keepMethod = 'y'
+    else:
+        methodAttempt = methods.get(newMethod)
+        if methodAttempt is not None:
+            method = newMethod
+            keepMethod = 'y'
+
 #Generation user input to .json file
 print('\nGenerating..')
 myDictObj = { \
@@ -97,7 +116,8 @@ myDictObj = { \
         "free.fr",
         "web.de",
         "mail.ru"
-     ]
+    ],
+    "method": method,
 }
 
 #Puts data in to the json file
